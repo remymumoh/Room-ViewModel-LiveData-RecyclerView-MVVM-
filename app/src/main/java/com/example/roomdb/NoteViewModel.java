@@ -9,16 +9,16 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 public class NoteViewModel extends AndroidViewModel {
-    private NoteReposiroty repository;
+    private NoteRepository repository;
     private LiveData<List<Note>> allNotes;
     public NoteViewModel(@NonNull Application application) {
         super(application);
-        repository = new NoteReposiroty(application);
+        repository = new NoteRepository(application);
         allNotes = repository.getAllNotes();
     }
 
     public void insert(Note note) {
-        repository.update(note);
+        repository.insert(note);
     }
 
     public void update(Note note) {
@@ -29,9 +29,8 @@ public class NoteViewModel extends AndroidViewModel {
         repository.delete(note);
     }
 
-    public LiveData<List<Note>> deleteAllNotes(){
-        return allNotes;
-    }
+    public void deleteAllNotes(){ repository.deleteAllNotes();}
+
 
     public LiveData<List<Note>> getAllNotes() {
         return allNotes;

@@ -1,13 +1,17 @@
 package com.example.roomdb;
 
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "note-table")
+@Entity(tableName = "note_table")
 public class Note {
+
     @PrimaryKey(autoGenerate = true)
     private int id;
+
     private String title;
+
     private String description;
 
     private int priority;
@@ -20,18 +24,6 @@ public class Note {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setPriority(int priority) {
-        this.priority = priority;
     }
 
     public int getId() {
